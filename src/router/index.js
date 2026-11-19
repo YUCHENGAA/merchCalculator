@@ -1,27 +1,37 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from "vue-router";
 
-import Home from '../views/Home.vue'
-import PopupStoreA from '../views/PopupStoreA.vue'
-import PopupStoreB from '../views/PopupStoreB.vue'
+import Home from "../views/Home.vue";
 
 const routes = [
   {
-    path: '/',
-    component: Home
+    path: "/",
+    component: Home,
   },
   {
-    path: '/store-a',
-    component: PopupStoreA
+    path: "/bomtoonGreetings",
+    component: () => import("../views/bomtoon/BomtoonGreetings.vue"),
   },
   {
-    path: '/store-b',
-    component: PopupStoreB
-  }
-]
+    path: "/lezhinGreetings",
+    component: () => import("../views/lezhin/LezhinGreetings.vue"),
+  },
+  {
+    path: "/worldtour",
+    component: () => import("../views/lezhin/WorldTour2.vue"),
+  },
+  {
+    path: "/salon2",
+    component: () => import("../views/lebom/Salon2.vue"),
+  },
+  {
+    path: "/wefesta",
+    component: () => import("../views/WEFESTA.vue"),
+  },
+];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
