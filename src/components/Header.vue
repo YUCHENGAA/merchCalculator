@@ -51,26 +51,54 @@
       <van-divider />
 
       <nav class="drawer-menu" aria-label="主要選單">
-        <van-cell title="首頁" :class="{ active: $route.path === '/' }" @click="navigate('/')" />
+        <van-cell
+          title="首頁"
+          :class="{ active: $route.path === '/' }"
+          @click="navigate('/')"
+        />
 
         <van-collapse v-model="activeNames">
           <van-collapse-item name="bomtoon" title="Bomtoon系列快閃">
-            <van-cell title="2027 SEASON’S GREETINGS" is-link @click="navigate('/bomtoonGreetings')" />
+            <van-cell
+              title="2027 SEASON’S GREETINGS"
+              :class="{ active: $route.path === '/bomtoonGreetings' }"
+              @click="navigate('/bomtoonGreetings')"
+            />
           </van-collapse-item>
           <van-collapse-item name="lezhin" title="Lezhin系列快閃">
-            <van-cell title="World Tour2" is-link @click="navigate('/worldtour')" />
-            <van-cell title="𝟐𝟎𝟐𝟕 𝑺𝒆𝒂𝒔𝒐𝒏’𝒔 𝑮𝒓𝒆𝒆𝒕𝒊𝒏𝒈𝒔" is-link @click="navigate('/lezhinGreetings')" />
+            <van-cell
+              title="World Tour2"
+              :class="{ active: $route.path === '/worldtour' }"
+              @click="navigate('/worldtour')"
+            />
+            <van-cell
+              title="𝟐𝟎𝟐𝟕 𝑺𝒆𝒂𝒔𝒐𝒏’𝒔 𝑮𝒓𝒆𝒆𝒕𝒊𝒏𝒈𝒔"
+              :class="{ active: $route.path === '/lezhinGreetings' }"
+              @click="navigate('/lezhinGreetings')"
+            />
           </van-collapse-item>
           <van-collapse-item name="lebom" title="LEBOM咖啡廳">
-            <van-cell title="女僕系列2" is-link @click="navigate('/salon2')" />
+            <van-cell
+              title="女僕系列2"
+              :class="{ active: $route.path === '/salon2' }"
+              @click="navigate('/salon2')"
+            />
           </van-collapse-item>
         </van-collapse>
 
-        <van-cell title="WEFESTA" :class="{ active: $route.path === '/wefesta' }" @click="navigate('/wefesta')" />
+        <van-cell
+          title="WEFESTA"
+          :class="{ active: $route.path === '/wefesta' }"
+          @click="navigate('/wefesta')"
+        />
 
         <van-collapse v-model="activeNames">
           <van-collapse-item name="jp" title="日本動漫">
-            <van-cell title="終熾完結紀念慶典系列" is-link @click="navigate('/anniversaryCelebration')" />
+            <van-cell
+              title="終熾完結紀念慶典系列"
+              :class="{ active: $route.path === '/anniversaryCelebration' }"
+              @click="navigate('/anniversaryCelebration')"
+            />
           </van-collapse-item>
         </van-collapse>
       </nav>
@@ -122,6 +150,7 @@ function navigate(path) {
 }
 
 .menu-button {
+  text-align: left;
   width: 44px;
   height: 44px;
   border: 1px solid rgba(88, 73, 117, 0.1);
@@ -161,6 +190,7 @@ function navigate(path) {
   color: #62596c;
   font-size: 15px;
   border-radius: 10px;
+  text-align: left;
 }
 
 .drawer-menu :deep(.van-cell.active) {
@@ -178,5 +208,4 @@ function navigate(path) {
     font-size: 18px;
   }
 }
-
 </style>
