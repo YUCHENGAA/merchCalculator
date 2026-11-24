@@ -127,6 +127,14 @@ function openImagePreview() {
   showImagePreview({
     images: galleryImages.value,
     startPosition: 0,
+    overlay: true,
+    closeable: false,
+    showIndex: false,
+    loop: true,
+    closeOnClickOverlay: true,
+    overlayStyle: {
+      backgroundColor: "rgba(0, 0, 0, 0.65)",
+    },
   });
 }
 
@@ -257,5 +265,37 @@ watch(
   .quantity-control :deep(.van-stepper) {
     width: 144px;
   }
+}
+/* 圖片預覽背景 */
+:global(.van-image-preview) {
+  background: transparent;
+}
+
+/* 圖片展示區 */
+:global(.van-image-preview__swipe) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 中央白色展示區，不要邊框 */
+:global(.van-image-preview__image) {
+  background-color: #fff;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 0;
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 80vh;
+}
+
+/* 圖片維持原始比例 */
+:global(.van-image-preview__image img) {
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
 }
 </style>
