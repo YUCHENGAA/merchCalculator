@@ -102,6 +102,8 @@
           </van-collapse-item>
         </van-collapse>
       </nav>
+
+      <div class="app-version">v{{ appVersion }} ({{ releaseDate }})</div>
     </div>
   </van-popup>
 </template>
@@ -109,10 +111,13 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import packageInfo from "../../package.json";
 
 const router = useRouter();
 const drawerVisible = ref(false);
 const activeNames = ref([]);
+const appVersion = packageInfo.version;
+const releaseDate = packageInfo.releaseDate;
 
 function navigate(path) {
   drawerVisible.value = false;
@@ -162,6 +167,10 @@ function navigate(path) {
 
 .drawer-content {
   padding: 10px 5px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .drawer-header {
@@ -197,6 +206,15 @@ function navigate(path) {
   color: #66507f;
   background: #eee8f5;
   font-weight: 800;
+}
+
+.app-version {
+  margin-top: auto;
+  padding: 16px 8px 12px;
+  color: #969799;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: left;
 }
 
 @media (max-width: 700px) {
